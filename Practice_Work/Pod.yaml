@@ -8,3 +8,7 @@ spec:
   containers:
     - name: test-pod
       image: nginx
+      command:
+        - sh
+        - -c
+        - sleep 2000

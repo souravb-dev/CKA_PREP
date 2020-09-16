@@ -1,0 +1,27 @@
+apiversion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: test-rs
+  label:
+    replica-name: test-rs
+
+spec:
+  apiversion: v1
+  kind: Pod
+  metadata:
+    name: test-pod
+    label:
+      app_type: frontend
+  spec:
+    template:
+      containers:
+        - name: test-pod
+          image: nginx
+          command:
+            - sh
+            - -c
+            - sleep 2000
+    replicas: 3
+    selector:
+      matchLabels:
+        app_type: frontend
