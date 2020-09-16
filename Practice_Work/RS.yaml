@@ -1,19 +1,17 @@
-apiversion: apps/v1
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: test-rs
-  label:
+  labels:
     replica-name: test-rs
 
 spec:
-  apiversion: v1
-  kind: Pod
-  metadata:
-    name: test-pod
-    label:
-      app_type: frontend
-  spec:
-    template:
+  template:
+    metadata:
+      name: test-pod
+      label:
+        app_type: frontend
+    spec:
       containers:
       - name: test-pod
         image: nginx
