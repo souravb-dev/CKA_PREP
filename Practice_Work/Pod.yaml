@@ -2,7 +2,8 @@ apiversion: v1
 kind: Pod
 metadata:
   name: test-pod
-  label: frontend
+  label:
+    app_type: frontend
 spec:
   containers:
     - name: test-pod
