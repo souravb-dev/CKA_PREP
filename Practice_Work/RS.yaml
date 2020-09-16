@@ -15,12 +15,12 @@ spec:
   spec:
     template:
       containers:
-        - name: test-pod
-          image: nginx
-          command:
-            - sh
-            - -c
-            - sleep 2000
+      - name: test-pod
+        image: nginx
+        command:
+          - sh
+          - -c
+          - sleep 2000
     replicas: 3
     selector:
       matchLabels:
