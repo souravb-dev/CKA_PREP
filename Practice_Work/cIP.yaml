@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: service
+metadata:
+  name: test-service
+  labels:
+    app-service: test-service
+
+spec:
+  type: clusterIP
+  ports:
+    - targetPort: 80
+      port: 80
+
+  selector:
+    app_type: backend
