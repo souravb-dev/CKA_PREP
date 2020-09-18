@@ -13,3 +13,4 @@ spec:
         - sh
         - -c
         - sleep 2000
+  nodeName: node01
