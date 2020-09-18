@@ -9,8 +9,34 @@ spec:
   containers:
     - name: test-pod
       image: nginx
+      imagePullPolicy: IfNotPresent/Always
+      ports:
+        containerPort: 8080
+      resources:
+        requests:
+          memory: 1Gi
+          cpu: 1
+        limits:
+          memory: 2Gi
+          cpu: 2
       command:
         - sh
         - -c
         - sleep 2000
   nodeName: node01
+  tollerations:
+    - key: "app"
+      operator: "Equal"
+      value: "frontend"
+      effect: "NoSchedule"
+  nodeSelector:
+    size: small
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - matchExpressions:
+        - key: size
+          operator: In/NotIn/Exists
+          values:
+            - small
+

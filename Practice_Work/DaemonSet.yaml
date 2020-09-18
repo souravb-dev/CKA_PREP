@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: test-rs
+  labels:
+    replica-name: test-rs
+
+spec:
+  template:
+    metadata:
+      name: test-pod
+      label:
+        app_type: frontend
+    spec:
+      containers:
+      - name: test-pod
+        image: nginx
+        command:
+          - sh
+          - -c
+          - sleep 2000
